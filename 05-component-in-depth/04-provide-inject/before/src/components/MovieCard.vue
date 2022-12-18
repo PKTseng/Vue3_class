@@ -1,9 +1,6 @@
 <template>
   <div class="card">
-    <MovieItem
-      :title="movie.title"
-      :description="movie.description"
-    />
+    <MovieItem :description="movie.description" />
   </div>
 </template>
 <script>
@@ -19,6 +16,13 @@ export default {
         description: "这是一段电影的描述",
       },
     };
+  },
+  // provide: {
+  //   title: this.movie.title,
+  // },
+
+  provide() {
+    return { title: this.movie.title, description: this.movie.description };
   },
 };
 </script>
