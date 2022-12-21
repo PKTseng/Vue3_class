@@ -1,7 +1,7 @@
 <template>
-  <label
-    ><span>搜索：</span
-    ><input
+  <label>
+    <span>搜索：</span>
+    <input
       type="text"
       :value="searchTerm"
       @input="$emit('update:searchTerm', $event.target.value)"

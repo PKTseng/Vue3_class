@@ -1,8 +1,14 @@
 <template>
   <main>
     <div>
-      <SearchInput />
+      <SearchInput
+        v-model:searchText="searchText"
+        v-model:category="category"
+      />
     </div>
+    <div class="splitLine"></div>
+    <p>搜索词：{{ searchText }}</p>
+    <p>类别：{{ category }}</p>
   </main>
 </template>
 
@@ -12,6 +18,12 @@ import SearchInput from "./components/SearchInput.vue";
 export default {
   components: {
     SearchInput,
+  },
+  data() {
+    return {
+      searchText: "",
+      category: "default",
+    };
   },
 };
 </script>

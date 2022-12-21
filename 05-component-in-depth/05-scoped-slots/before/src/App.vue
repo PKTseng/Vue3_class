@@ -2,9 +2,17 @@
   <main>
     <div>
       <ContactList>
-        <p>{{ contact.name }}</p>
-        <p>{{ contact.email }}</p>
+        <template #default="props">
+          <p>{{ props.contact.name }}</p>
+          <p>{{ props.contact.email }}</p>
+        </template>
       </ContactList>
+      <!-- <ContactList>
+        <template #="{ contact }">
+          <p>{{ contact.name }}</p>
+          <p>{{ contact.email }}</p>
+        </template>
+      </ContactList> -->
     </div>
   </main>
 </template>
