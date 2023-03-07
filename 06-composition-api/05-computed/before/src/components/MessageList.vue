@@ -1,23 +1,33 @@
 <template>
   <div>
+    <input type="text" placeholder="文字搜尋" v-model="searchText" />
     <ul>
-      <li v-for="msg in messages" :key="msg.id">{{ msg.content }}</li>
+      <li v-for="msg in searchTerm" :key="msg.id">{{ msg.content }}</li>
     </ul>
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 export default {
   setup() {
     const messages = ref([
-      { id: 1, content: "这是一条消息提醒1" },
-      { id: 2, content: "这是一条消息提醒2" },
-      { id: 3, content: "这是一条消息提醒3" },
-      { id: 4, content: "这是一条消息提醒4" },
+      { id: 1, content: "这是一条消息提醒112" },
+      { id: 2, content: "这是一条消息提醒223" },
+      { id: 3, content: "这是一条消息提醒334" },
+      { id: 4, content: "这是一条消息提醒445" },
     ]);
 
-    return { messages };
+    const searchText = ref("");
+
+    const searchTerm = computed(() => {
+      if (searchText.value === "") return messages.value;
+      return messages.value.filter((msg) =>
+        msg.content.includes(searchText.value)
+      );
+    });
+
+    return { messages, searchTerm, searchText };
   },
 };
 </script>
