@@ -1,13 +1,18 @@
 <template>
   <li>{{ msg }}</li>
+
+  <p>text</p>
 </template>
 <script>
 import { ref, watch, watchEffect, toRefs } from "vue";
 
 export default {
-  props: ["msg"],
+  props: ["msg", "text"],
   setup(props) {
-    // console.log(props.msg);
+    const { msg, text } = toRefs(props);
+    console.log(msg);
+    console.log(text);
+
     return {};
   },
 };

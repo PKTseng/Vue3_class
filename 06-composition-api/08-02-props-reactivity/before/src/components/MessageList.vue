@@ -1,11 +1,7 @@
 <template>
   <div>
     <ul>
-      <MessageListItem
-        v-for="msg in messages"
-        :key="msg.id"
-        :msg="msg.content"
-      ></MessageListItem>
+      <MessageListItem v-for="msg in messages" :key="msg.id" :msg="msg.content" :text="text"></MessageListItem>
     </ul>
   </div>
 </template>
@@ -23,7 +19,9 @@ export default {
       { id: 4, content: "这是一条消息提醒4" },
     ]);
 
-    return { messages };
+    const text = ref("text");
+
+    return { messages, text };
   },
 };
 </script>

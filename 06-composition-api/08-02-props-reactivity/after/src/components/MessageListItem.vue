@@ -5,9 +5,11 @@
 import { ref, watch, watchEffect, toRefs } from "vue";
 
 export default {
-  props: ["msg"],
+  props: ["msg", "text"],
   setup(props) {
+    // const { msg, text } = props;
     // console.log(props.msg);
+    // console.log(props.text);
 
     // watch(
     //   () => props.msg,
@@ -29,10 +31,16 @@ export default {
     //   }
     // );
 
-    const { msg } = toRefs(props);
+    const { msg, text } = toRefs(props);
+    // console.log(msg.value);
+    // console.log(text.value);
 
     watch(msg, (newMsg) => {
       console.log(newMsg);
+    });
+
+    watch(text, (newtext) => {
+      console.log(newtext);
     });
 
     return {};

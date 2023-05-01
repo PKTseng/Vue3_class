@@ -1,11 +1,7 @@
 <template>
   <div>
     <ul>
-      <MessageListItem
-        v-for="msg in messages"
-        :key="msg.id"
-        :msg="msg.content"
-      ></MessageListItem>
+      <MessageListItem v-for="msg in messages" :key="msg.id" :msg="msg.content" :text="text"></MessageListItem>
     </ul>
   </div>
 </template>
@@ -16,6 +12,7 @@ import MessageListItem from "./MessageListItem.vue";
 export default {
   components: { MessageListItem },
   setup(props) {
+    const text = ref("text");
     const messages = ref([
       { id: 1, content: "这是一条消息提醒1" },
       { id: 2, content: "这是一条消息提醒2" },
@@ -23,11 +20,11 @@ export default {
       { id: 4, content: "这是一条消息提醒4" },
     ]);
 
-    setTimeout(() => {
-      messages.value[1].content = "这是一条消息提醒2-修改";
-    }, 1500);
+    // setTimeout(() => {
+    //   messages.value[1].content = "这是一条消息提醒2-修改";
+    // }, 1500);
 
-    return { messages };
+    return { messages, text };
   },
 };
 </script>
