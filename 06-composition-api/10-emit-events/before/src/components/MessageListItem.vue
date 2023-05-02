@@ -6,9 +6,12 @@ import { ref, watch, watchEffect, toRefs } from "vue";
 
 export default {
   props: ["msg", "id"],
-  setup(props) {
+  emits: ["remove"],
+  setup(props, context) {
     function removeMessage(id) {
       console.log(" 删除消息", id);
+
+      context.emit("remove", id);
     }
     return { removeMessage };
   },
