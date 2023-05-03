@@ -4,23 +4,27 @@
   </div>
 </template>
 <script>
-import { provide } from "vue";
-import MovieItem from "./MovieItem.vue";
+import { provide, ref } from "vue"
+import MovieItem from "./MovieItem.vue"
 export default {
   components: {
     MovieItem,
   },
   setup() {
-    const movie = {
+    const movie = ref({
       title: "电影",
       description: "这是一段电影的描述",
-    };
+    })
 
-    provide("title", movie.title);
+    provide("movie", movie)
 
-    return { movie };
+    setTimeout(() => {
+      movie.value.title = "Movie"
+    }, 1000)
+
+    return { movie }
   },
-};
+}
 </script>
 <style scoped>
 .card {

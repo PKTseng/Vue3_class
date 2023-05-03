@@ -1,15 +1,15 @@
 <template>
-  <h2>{{ title }}</h2>
+  <h2>{{ movie.title }}</h2>
 </template>
 <script>
-import { inject } from "vue";
+import { inject } from "vue"
 export default {
   setup() {
-    const title = inject("title");
+    const movie = inject("movie")
 
-    return { title };
+    return { movie }
   },
-};
+}
 </script>
 <style scoped>
 h2 {
