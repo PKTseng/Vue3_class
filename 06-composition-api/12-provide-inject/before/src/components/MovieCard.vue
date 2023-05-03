@@ -16,7 +16,11 @@ export default {
       description: "这是一段电影的描述",
     })
 
-    provide("title", toRef(movie.value, "title"))
+    // Object Array 可以響應式
+    // provide("movie", movie)
+
+    // 基本型別不行
+    provide("title", toRef(movie.value, "title")) //toRef 意思是從 movie 裡面抓 title 屬性
 
     setTimeout(() => {
       movie.value.title = "Movie"
