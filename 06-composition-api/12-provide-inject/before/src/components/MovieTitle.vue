@@ -2,8 +2,13 @@
   <h2>{{ title }}</h2>
 </template>
 <script>
+import { inject } from "vue";
 export default {
-  setup() {},
+  setup() {
+    const title = inject("title");
+
+    return { title };
+  },
 };
 </script>
 <style scoped>

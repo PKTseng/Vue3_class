@@ -1,9 +1,10 @@
 <template>
   <div class="card">
-    <MovieItem :description="movie.description" />
+    <MovieItem :description="movie.description"></MovieItem>
   </div>
 </template>
 <script>
+import { provide } from "vue";
 import MovieItem from "./MovieItem.vue";
 export default {
   components: {
@@ -14,6 +15,8 @@ export default {
       title: "电影",
       description: "这是一段电影的描述",
     };
+
+    provide("title", movie.title);
 
     return { movie };
   },
