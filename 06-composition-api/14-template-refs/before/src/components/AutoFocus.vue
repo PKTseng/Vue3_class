@@ -1,14 +1,22 @@
 <template>
-  <input type="text" v-model="inputText" />
+  <input type="text" v-model="inputText" ref="inputControl" />
 </template>
 
 <script>
+import { onMounted, ref } from "vue"
+
 export default {
   setup() {
-    const inputText = ref("");
-    return { inputText };
+    const inputText = ref("")
+    const inputControl = ref(null)
+
+    onMounted(() => {
+      inputControl.value.focus()
+    })
+
+    return { inputText, inputControl }
   },
-};
+}
 </script>
 
 <style scoped>
