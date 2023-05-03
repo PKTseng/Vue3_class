@@ -11,6 +11,7 @@
     </ul>
   </div>
 </template>
+
 <script>
 import { ref, watch, watchEffect } from "vue";
 import MessageListItem from "./MessageListItem.vue";

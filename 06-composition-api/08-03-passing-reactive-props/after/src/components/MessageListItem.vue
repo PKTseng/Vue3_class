@@ -6,6 +6,12 @@ import { ref, watch, watchEffect } from "vue";
 
 export default {
   props: ["msg"],
+
+  setup(props) {
+    // console.log(props);
+    const { msg } = props;
+    console.log(msg);
+  },
 };
 </script>
 <style scoped>

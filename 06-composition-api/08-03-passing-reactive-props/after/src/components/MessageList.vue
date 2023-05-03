@@ -1,25 +1,22 @@
 <template>
   <div>
     <ul>
-      <MessageListItem
-        v-for="msg in messages"
-        :key="msg.id"
-        :msg="msg.content"
-      ></MessageListItem>
+      <MessageListItem v-for="msg in messages" :key="msg.id" :msg="msg.content"></MessageListItem>
     </ul>
   </div>
 </template>
 <script>
-import { ref, watch, watchEffect } from "vue";
+import { ref, watch, watchEffect, toRefs } from "vue";
 import MessageListItem from "./MessageListItem.vue";
 
 export default {
   props: ["messages"],
   setup(props) {
-    console.log(props.messages);
+    // console.log(props.messages);
+    const { messages } = props;
+    console.log(messages);
 
     // 这里 messages 是 ref 中的 value
-
     // const { messages } = props;
 
     watch(
