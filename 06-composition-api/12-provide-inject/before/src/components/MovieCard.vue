@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import { provide, ref } from "vue"
+import { provide, ref, toRef } from "vue"
 import MovieItem from "./MovieItem.vue"
 export default {
   components: {
@@ -16,7 +16,7 @@ export default {
       description: "这是一段电影的描述",
     })
 
-    provide("movie", movie)
+    provide("title", toRef(movie.value, "title"))
 
     setTimeout(() => {
       movie.value.title = "Movie"

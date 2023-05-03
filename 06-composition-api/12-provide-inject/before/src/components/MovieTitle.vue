@@ -1,13 +1,13 @@
 <template>
-  <h2>{{ movie.title }}</h2>
+  <h2>{{ title }}</h2>
 </template>
 <script>
 import { inject } from "vue"
 export default {
   setup() {
-    const movie = inject("movie")
+    const title = inject("title")
 
-    return { movie }
+    return { title }
   },
 }
 </script>
